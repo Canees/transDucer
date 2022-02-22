@@ -1,6 +1,11 @@
 const i2c = require('i2c-bus');
 const i2c1 = i2c.openSync(1);
 
+// 电量
+// i2c1.writeByteSync(0x48, 0x40, 255)
+const d = i2c1.readByteSync(0x48, 0x40);
+
+console.log(d);
 // x,y,z角度=Angle/32768*180
 // const data1 = i2c1.readWordSync(0x50, 0x3d);
 // const data2 = i2c1.readWordSync(0x50, 0x3e);
